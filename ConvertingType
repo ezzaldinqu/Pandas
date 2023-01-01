@@ -1,0 +1,9 @@
+import datetime
+
+import pandas as pd
+
+df = pd.read_csv('test.csv')
+df[['First','Mid','Last']] = df.Name.str.split(" ",expand=True,n=2)
+df.drop('Name',inplace=True,axis=1)
+df = df.astype({'DateOfBirth':'datetime64'})
+print(df.dtypes)
