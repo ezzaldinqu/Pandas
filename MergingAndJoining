@@ -1,0 +1,20 @@
+import pandas as pd
+
+# Create employees dataset
+df_departments = pd.DataFrame(
+    {'department_id':['D1','D2','D3','D4'],
+     'department_name':['IT','SALES','HR','R&D'],
+     'department_location':['location_1','location_1','location_2','location_2']})
+
+# Create departments dataset
+df_employees = pd.DataFrame(
+    {'employee_name':['Michael','Alice','Max','Janet','Ali'],
+     'department_id':['D1','D1','D2','D3','D6'],
+     'salary':[500,1000,1500,2000,2500]})
+
+df = pd.merge(df_employees[['employee_name','department_id','salary']],df_departments[['department_name','department_id']],
+              how='inner',on='department_id',indicator=True)
+df.drop(columns=['department_id'],inplace=True)
+print(df)
+df2 =pd.concat([df_employees,df_departments],ignore_index=True)
+print(df2)
