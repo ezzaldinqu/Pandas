@@ -1,0 +1,13 @@
+import pandas as pd
+
+df_countries_info = pd.DataFrame(
+    {'country_name': ['Egypt','Kenya','Morocco','Nigeria','South Africa','Brazil','Canada','Chile','Mexico','United States','China','India','Indonesia','Japan','Vietnam','Austria','Belgium','France','Italy','United Kingdom','Australia','Fiji','New Zealand','Tonga','Tuvalu'],
+     'region': ['Africa','Africa','Africa','Africa','Africa','South Americas','North Americas','South Americas','North Americas','North Americas','Asia','Asia','Asia','Asia','Asia','Europe','Europe','Europe','Europe','Europe','Oceania','Oceania','Oceania','Oceania','Oceania'],
+     'population':[100388073,52573973,36471769,200963599,58558270,211049527,37411047,18952038,127575529,329064917,1433783686,1366417754,270625568,126860301,96462106,8955102,11539328,65129728,60550075,67530172,25203198,889953,4783063,110940,11646],
+     'main_language':['Arabic','English','Arabic','English','English','Portuguese','English','Spanish','Spanish','English','Mandarin','Hindi','Indonesian','Japanese','Vietnamese','German','Dutch','French','Italian','English','English','English','English','English','English']},
+     index = ['EG','KE','MA','NG','ZA','BR','CA','CL','MX','US','CN','IN','ID','JP','VN','AT','BE','FR','IT','GB','AU','FJ','NZ','TO','TV'])
+
+# print(df_countries_info.sort_values(by='country_name',ascending=False))
+
+df =  df_countries_info.groupby(by='region').sum()
+print(df.head())
