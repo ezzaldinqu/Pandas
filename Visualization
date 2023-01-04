@@ -1,0 +1,22 @@
+import pandas as pd
+import matplotlib
+import seaborn
+
+df_air_passengers = pd.read_csv('https://raw.githubusercontent.com/jbrownlee/Datasets/master/airline-passengers.csv')
+
+# Display DataFrame
+df_air_passengers
+
+# Set the Month values as the DataFrame index
+df_air_passengers.set_index('Month', inplace = True)
+
+# Plot the DataFrame
+df_air_passengers.plot(figsize = (14,8))
+
+# Import the Iris dataset as a CSV file
+df_iris = pd.read_csv('https://gist.githubusercontent.com/curran/a08a1080b88344b0c8a7/raw/0e7a9b0a5d22642a06d3d5b9bcbad9890c8ee534/iris.csv')
+
+# Display DataFrame
+# print(df_iris)
+df_iris.plot(kind='scatter',x='petal_length',y='petal_width',figsize=(14,6))
+df_iris.sort_values(by='sepal_width',ascending=False).style.bar(subset=['sepal_width'],color='#00AEE8')
